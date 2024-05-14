@@ -168,6 +168,7 @@ class _SampleNavigationAppState extends State<SampleNavigationApp> {
                                     simulateRoute: true,
                                     language: "en",
                                     allowsUTurnAtWayPoints: true,
+                                    voiceInstructionsEnabled: false,
                                     units: VoiceUnits.metric));
                             //after 10 seconds add a new stop
                             await Future.delayed(const Duration(seconds: 10));
