@@ -225,7 +225,7 @@ class NavigationActivity : AppCompatActivity() {
                 .voiceUnits(FlutterMapboxNavigationPlugin.navigationVoiceUnits)
                 .bannerInstructions(FlutterMapboxNavigationPlugin.bannerInstructionsEnabled)
                 .steps(true)
-                .voiceInstructions(false)
+                .voiceInstructions(FlutterMapboxNavigationPlugin.voiceInstructionsEnabled)
                 .build(),
             callback = object : NavigationRouterCallback {
                 override fun onCanceled(routeOptions: RouteOptions, routerOrigin: RouterOrigin) {

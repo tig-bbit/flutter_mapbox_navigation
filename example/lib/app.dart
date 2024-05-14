@@ -338,6 +338,9 @@ class _SampleNavigationAppState extends State<SampleNavigationApp> {
     _durationRemaining = await MapBoxNavigation.instance.getDurationRemaining();
 
     switch (e.eventType) {
+      case MapBoxEvent.speech_announcement:
+        print("!!!!!!!!!!!!!!!!!!!!!!!! ${e.eventType}");
+        break;
       case MapBoxEvent.progress_change:
         var progressEvent = e.data as RouteProgressEvent;
         if (progressEvent.currentStepInstruction != null) {

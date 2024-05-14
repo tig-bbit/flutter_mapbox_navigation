@@ -75,7 +75,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "298c60d193fec8fc6814a6caa17835f07cd1731a"
+      resolved-ref: "2ae5b0f0e7c0d667cbf48eb9ae411d19e31e0f8d"
       url: "https://github.com/tig-bbit/flutter_mapbox_navigation.git"
     source: git
     version: "0.2.2"
