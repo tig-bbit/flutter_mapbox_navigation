@@ -211,49 +211,48 @@ class NavigationActivity : AppCompatActivity() {
     }
 
     private fun requestRoutes(waypointSet: WaypointSet) {
-        Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        // sendEvent(MapBoxEvents.ROUTE_BUILDING)
-        // MapboxNavigationApp.current()!!.requestRoutes(
-        //     routeOptions = RouteOptions
-        //         .builder()
-        //         .applyDefaultNavigationOptions()
-        //         .applyLanguageAndVoiceUnitOptions(this)
-        //         .coordinatesList(waypointSet.coordinatesList())
-        //         .waypointIndicesList(waypointSet.waypointsIndices())
-        //         .waypointNamesList(waypointSet.waypointsNames())
-        //         .language(FlutterMapboxNavigationPlugin.navigationLanguage)
-        //         .alternatives(FlutterMapboxNavigationPlugin.showAlternateRoutes)
-        //         .voiceUnits(FlutterMapboxNavigationPlugin.navigationVoiceUnits)
-        //         .bannerInstructions(FlutterMapboxNavigationPlugin.bannerInstructionsEnabled)
-        //         .steps(true)
-        //         .voiceInstructions(FlutterMapboxNavigationPlugin.voiceInstructionsEnabled)
-        //         .build(),
-        //     callback = object : NavigationRouterCallback {
-        //         override fun onCanceled(routeOptions: RouteOptions, routerOrigin: RouterOrigin) {
-        //             sendEvent(MapBoxEvents.ROUTE_BUILD_CANCELLED)
-        //         }
+        sendEvent(MapBoxEvents.ROUTE_BUILDING)
+        MapboxNavigationApp.current()!!.requestRoutes(
+            routeOptions = RouteOptions
+                .builder()
+                .applyDefaultNavigationOptions()
+                .applyLanguageAndVoiceUnitOptions(this)
+                .coordinatesList(waypointSet.coordinatesList())
+                .waypointIndicesList(waypointSet.waypointsIndices())
+                .waypointNamesList(waypointSet.waypointsNames())
+                .language(FlutterMapboxNavigationPlugin.navigationLanguage)
+                .alternatives(FlutterMapboxNavigationPlugin.showAlternateRoutes)
+                .voiceUnits(FlutterMapboxNavigationPlugin.navigationVoiceUnits)
+                .bannerInstructions(FlutterMapboxNavigationPlugin.bannerInstructionsEnabled)
+                .steps(true)
+                .voiceInstructions(FlutterMapboxNavigationPlugin.voiceInstructionsEnabled)
+                .build(),
+            callback = object : NavigationRouterCallback {
+                override fun onCanceled(routeOptions: RouteOptions, routerOrigin: RouterOrigin) {
+                    sendEvent(MapBoxEvents.ROUTE_BUILD_CANCELLED)
+                }
 
-        //         override fun onFailure(reasons: List<RouterFailure>, routeOptions: RouteOptions) {
-        //             sendEvent(MapBoxEvents.ROUTE_BUILD_FAILED)
-        //         }
+                override fun onFailure(reasons: List<RouterFailure>, routeOptions: RouteOptions) {
+                    sendEvent(MapBoxEvents.ROUTE_BUILD_FAILED)
+                }
 
-        //         override fun onRoutesReady(
-        //             routes: List<NavigationRoute>,
-        //             routerOrigin: RouterOrigin
-        //         ) {
-        //             sendEvent(
-        //                 MapBoxEvents.ROUTE_BUILT,
-        //                 Gson().toJson(routes.map { it.directionsRoute.toJson() })
-        //             )
-        //             if (routes.isEmpty()) {
-        //                 sendEvent(MapBoxEvents.ROUTE_BUILD_NO_ROUTES_FOUND)
-        //                 return
-        //             }
-        //             binding.navigationView.api.routeReplayEnabled(FlutterMapboxNavigationPlugin.simulateRoute)
-        //             binding.navigationView.api.startActiveGuidance(routes)
-        //         }
-        //     }
-        // )
+                override fun onRoutesReady(
+                    routes: List<NavigationRoute>,
+                    routerOrigin: RouterOrigin
+                ) {
+                    sendEvent(
+                        MapBoxEvents.ROUTE_BUILT,
+                        Gson().toJson(routes.map { it.directionsRoute.toJson() })
+                    )
+                    if (routes.isEmpty()) {
+                        sendEvent(MapBoxEvents.ROUTE_BUILD_NO_ROUTES_FOUND)
+                        return
+                    }
+                    binding.navigationView.api.routeReplayEnabled(FlutterMapboxNavigationPlugin.simulateRoute)
+                    binding.navigationView.api.startActiveGuidance(routes)
+                }
+            }
+        )
     }
 
 
