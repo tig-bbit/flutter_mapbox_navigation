@@ -143,8 +143,8 @@ class _SampleNavigationAppState extends State<SampleNavigationApp> {
                             opt.bannerInstructionsEnabled = true;
                             opt.units = VoiceUnits.metric;
                             opt.language = "de-DE";
-                            await MapBoxNavigation.instance
-                                .startNavigation(wayPoints: wayPoints, options: opt);
+                            await MapBoxNavigation.instance.startNavigation(
+                                wayPoints: wayPoints, options: opt);
                           },
                         ),
                         const SizedBox(

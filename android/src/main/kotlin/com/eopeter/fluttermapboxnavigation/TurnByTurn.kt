@@ -132,7 +132,7 @@ open class TurnByTurn(
                 .steps(true)
                 .voiceUnits(navigationVoiceUnits)
                 .bannerInstructions(bannerInstructionsEnabled)
-                .voiceInstructions(voiceInstructionsEnabled)
+                .voiceInstructions(false)
                 .build(),
             callback = object : NavigationRouterCallback {
                 override fun onRoutesReady(
