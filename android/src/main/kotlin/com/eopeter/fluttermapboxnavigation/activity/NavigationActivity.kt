@@ -211,7 +211,8 @@ class NavigationActivity : AppCompatActivity() {
     }
 
     private fun requestRoutes(waypointSet: WaypointSet) {
-        sendEvent(MapBoxEvents.ROUTE_BUILDING)
+        Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        // sendEvent(MapBoxEvents.ROUTE_BUILDING)
         // MapboxNavigationApp.current()!!.requestRoutes(
         //     routeOptions = RouteOptions
         //         .builder()
