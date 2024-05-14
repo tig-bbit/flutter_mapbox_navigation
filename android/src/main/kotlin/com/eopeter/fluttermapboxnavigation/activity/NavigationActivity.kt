@@ -398,7 +398,7 @@ class NavigationActivity : AppCompatActivity() {
     }
 
     private val voiceInstructionObserver = VoiceInstructionsObserver { voiceInstructions ->
-        sendEvent(MapBoxEvents.SPEECH_ANNOUNCEMENT, "")
+        sendEvent(MapBoxEvents.SPEECH_ANNOUNCEMENT, voiceInstructions.announcement().toString())
     }
 
     private val offRouteObserver = OffRouteObserver { offRoute ->

@@ -419,7 +419,7 @@ open class TurnByTurn(
     }
 
     private val voiceInstructionObserver = VoiceInstructionsObserver { voiceInstructions ->
-        PluginUtilities.sendEvent(MapBoxEvents.SPEECH_ANNOUNCEMENT, "")
+        PluginUtilities.sendEvent(MapBoxEvents.SPEECH_ANNOUNCEMENT, voiceInstructions.announcement().toString())
     }
 
     private val offRouteObserver = OffRouteObserver { offRoute ->

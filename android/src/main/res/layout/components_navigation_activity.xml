@@ -54,10 +54,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:visibility="gone" />
-        <!-- android:visibility="invisible"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/maneuverView" /> -->
+        app:layout_constraintTop_toBottomOf="@id/maneuverView" />
 
     <com.mapbox.navigation.ui.maps.camera.view.MapboxRouteOverviewButton
         android:id="@+id/routeOverview"
