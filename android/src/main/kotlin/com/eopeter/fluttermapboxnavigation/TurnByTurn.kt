@@ -383,7 +383,7 @@ open class TurnByTurn(
 
     var allowsUTurnAtWayPoints = false
     var enableRefresh = false
-    private var voiceInstructionsEnabled = false
+    private var voiceInstructionsEnabled = true
     private var bannerInstructionsEnabled = true
     private var longPressDestinationEnabled = true
     private var enableOnMapTapCallback = false
