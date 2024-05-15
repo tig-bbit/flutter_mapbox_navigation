@@ -397,9 +397,9 @@ class NavigationActivity : AppCompatActivity() {
         sendEvent(MapBoxEvents.BANNER_INSTRUCTION, bannerInstructions.primary().text())
     }
 
-    // private val voiceInstructionObserver = VoiceInstructionsObserver { voiceInstructions ->
-    //     sendEvent(MapBoxEvents.SPEECH_ANNOUNCEMENT, voiceInstructions.announcement().toString())
-    // }
+    private val voiceInstructionObserver = VoiceInstructionsObserver { voiceInstructions ->
+        sendEvent(MapBoxEvents.SPEECH_ANNOUNCEMENT, voiceInstructions.announcement().toString())
+    }
 
     private val offRouteObserver = OffRouteObserver { offRoute ->
         if (offRoute) {
