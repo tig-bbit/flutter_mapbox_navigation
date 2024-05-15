@@ -322,7 +322,7 @@ open class TurnByTurn(
     open fun registerObservers() {
         // register event listeners
         MapboxNavigationApp.current()?.registerBannerInstructionsObserver(this.bannerInstructionObserver)
-        // MapboxNavigationApp.current()?.registerVoiceInstructionsObserver(this.voiceInstructionObserver)
+        MapboxNavigationApp.current()?.registerVoiceInstructionsObserver(this.voiceInstructionObserver)
         MapboxNavigationApp.current()?.registerOffRouteObserver(this.offRouteObserver)
         MapboxNavigationApp.current()?.registerRoutesObserver(this.routesObserver)
         MapboxNavigationApp.current()?.registerLocationObserver(this.locationObserver)
@@ -333,7 +333,7 @@ open class TurnByTurn(
     open fun unregisterObservers() {
         // unregister event listeners to prevent leaks or unnecessary resource consumption
         MapboxNavigationApp.current()?.unregisterBannerInstructionsObserver(this.bannerInstructionObserver)
-        // MapboxNavigationApp.current()?.unregisterVoiceInstructionsObserver(this.voiceInstructionObserver)
+        MapboxNavigationApp.current()?.unregisterVoiceInstructionsObserver(this.voiceInstructionObserver)
         MapboxNavigationApp.current()?.unregisterOffRouteObserver(this.offRouteObserver)
         MapboxNavigationApp.current()?.unregisterRoutesObserver(this.routesObserver)
         MapboxNavigationApp.current()?.unregisterLocationObserver(this.locationObserver)
@@ -418,9 +418,9 @@ open class TurnByTurn(
         PluginUtilities.sendEvent(MapBoxEvents.BANNER_INSTRUCTION, bannerInstructions.primary().text())
     }
 
-    // private val voiceInstructionObserver = VoiceInstructionsObserver { voiceInstructions ->
-    //     PluginUtilities.sendEvent(MapBoxEvents.SPEECH_ANNOUNCEMENT, voiceInstructions.announcement().toString())
-    // }
+    private val voiceInstructionObserver = VoiceInstructionsObserver { voiceInstructions ->
+        PluginUtilities.sendEvent(MapBoxEvents.SPEECH_ANNOUNCEMENT, voiceInstructions.announcement().toString())
+    }
 
     private val offRouteObserver = OffRouteObserver { offRoute ->
         if (offRoute) {
